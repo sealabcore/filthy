@@ -12,8 +12,20 @@ ActiveRecord::Base.connection.create_table :movies, :force => true do |table|
   table.column :director, :string
 end
 
+ActiveRecord::Base.connection.create_table :actors, :force => true do |table|
+  table.column :id, :integer
+  table.column :name, :string
+end
+
 class Movie < ActiveRecord::Base
   
   filthy_attributes :title, :director
+
+end
+
+class Short < Movie
+end
+
+class Actor < ActiveRecord::Base
 
 end

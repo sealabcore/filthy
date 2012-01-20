@@ -1,5 +1,4 @@
 require 'active_record'
-require 'active_record/version'
 require 'active_support'
 
 module Filthy
@@ -23,6 +22,10 @@ module Filthy
 
   module InstanceMethods
     
+    def has_filthy_attributes?
+      self.class.class_variables.include?("@@filthy_attributes")
+    end
+    
     def set_filthy_before_save
       clean_filthy_attributes
       filthy_attributes = changes.keys.select { |attribute| self.class.send(:class_variable_get, :@@filthy_attributes).include? attribute.to_sym }
@@ -40,7 +43,7 @@ module Filthy
   def self.included(base)
     base.extend ClassMethods
     base.send(:include, InstanceMethods)
-    base.before_save :set_filthy_before_save    
+    base.before_save :set_filthy_before_save, :if => Proc.new { |object| object.has_filthy_attributes? }
   end
   
 end

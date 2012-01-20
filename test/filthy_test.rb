@@ -58,6 +58,31 @@ class MovieTest < Test::Unit::TestCase
       end
     end
   end
-
+  
+  context "a model without filthy attributes" do
+    setup do
+      @actor = Actor.new
+    end
+    
+    should "save" do
+      assert @actor.save
+    end
+  end
+  
+  context "a model with filthy attributes" do
+    context "with a subclass with no filthy_attributes defined" do
+      setup do
+        @short = Short.new
+        @short.title = "Intruder"
+        @short.save
+      end
+      
+      should "have filthy attributes" do
+        assert !@short.director_filthy?
+        assert @short.title_filthy?
+      end
+    end
+  end
+    
 end
 
