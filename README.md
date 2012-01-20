@@ -4,10 +4,11 @@ Rails gem to check if an attribute was changed on the last save. Useful in after
 
 # Install
 
-gem install filthy
+  gem install filthy
 
-## Usage
+### Usage
 
+```ruby
 class Movie < ActiveRecord::Base
   
   filthy_attributes :title, :director
@@ -24,6 +25,7 @@ end
 => true
 @movie.title_filty?
 => false
+```
 
 # Credits
 
