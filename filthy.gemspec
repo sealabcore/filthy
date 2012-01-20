@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = "Check if an attribute was changed after the last save."
   s.email = "michael.taylor@bookrenter.com"
   s.extra_rdoc_files = ["README.md", "lib/filthy.rb"]
-  s.files = ["README.md", "Rakefile", "lib/filthy.rb", "Manifest", "filthy.gemspec", "test/filthy_test.rb"]
+  s.files = ["README.md", "Rakefile", "filthy.gemspec", "lib/filthy.rb", "test/database.yml", "test/filthy_test.rb", "test/helper.rb", "Manifest"]
   s.homepage = "http://github.com/sealabcore/filthy"
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Filthy", "--main", "README.md"]
   s.require_paths = ["lib"]
