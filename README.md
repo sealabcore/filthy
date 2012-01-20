@@ -3,9 +3,9 @@
 Rails gem to check if an attribute was changed on the last save. Useful in after_save callbacks.
 
 # Install
-
-  gem install filthy
-
+```bash
+gem install filthy
+```
 ### Usage
 
 ```ruby
