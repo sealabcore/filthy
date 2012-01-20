@@ -17,6 +17,8 @@ end
 
 @movie = Movie.find(1)
 @movie.title = "Ernest Goes To Prison"
+@movie.title_filty?
+=> false
 @movie.save
 => true
 @movie.title_filty?
