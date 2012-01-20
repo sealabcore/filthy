@@ -16,16 +16,16 @@ class Movie < ActiveRecord::Base
 end
 
 @movie = Movie.find(1)
-@movie.title = "Ernest Goes To Prison"
-@movie.title_filty?
+@movie.title = "28 days later"
+@movie.title_filthy?
 => false
 @movie.save
 => true
-@movie.title_filty?
+@movie.title_filthy?
 => true
 @movie.save
 => true
-@movie.title_filty?
+@movie.title_filthy?
 => false
 ```
 
