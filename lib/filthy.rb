@@ -23,7 +23,7 @@ module Filthy
   module InstanceMethods
     
     def has_filthy_attributes?
-      self.class.class_variables.include?("@@filthy_attributes")
+      self.class.class_variables.include?(:@@filthy_attributes)
     end
     
     def set_filthy_before_save
