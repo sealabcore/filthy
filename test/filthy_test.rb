@@ -90,12 +90,12 @@ class MovieTest < Test::Unit::TestCase
     end
 
     context "with a subclass with different filthy_attributes defined" do
-      should "not inherit the parent class's filthy attributes" do
-        assert_equal [:best_boy_grip], Documentary.filthy_columns
+      should "inherit the parent class's filthy attributes and add to them" do
+        assert_same_elements [:best_boy_grip, :title, :director], Documentary.filthy_columns
       end
 
       should "not alter the parent class's filthy attributes" do
-        assert_equal [:title, :director], Movie.filthy_columns
+        assert_same_elements [:title, :director], Movie.filthy_columns
       end
     end
   end

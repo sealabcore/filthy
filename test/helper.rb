@@ -22,7 +22,6 @@ class Movie < ActiveRecord::Base
   include Filthy
   
   filthy_attributes :title, :director
-
 end
 
 class Short < Movie

@@ -8,7 +8,12 @@ module Filthy
     def filthy_attributes(*args)
       raise ArgumentError if args.empty?
       class_inheritable_accessor :filthy_columns, :filthy_attribute_methods
-      self.filthy_columns = args
+
+      if self.filthy_columns
+        self.filthy_columns |= args
+      else
+        self.filthy_columns = args
+      end
       self.filthy_attribute_methods = self.filthy_columns.collect { |attribute| :"#{attribute}_filthy" }
       
       self.filthy_attribute_methods.each do |method|
