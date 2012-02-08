@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = "filthy"
-  s.version = "1.0.1"
+  s.version = "2.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mike Taylor"]
-  s.date = "2012-01-20"
+  s.date = "2012-02-08"
   s.description = "Check if an attribute was changed after the last save."
   s.email = "michael.taylor@bookrenter.com"
   s.extra_rdoc_files = ["README.md", "README.rdoc", "lib/filthy.rb"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<active_support>, [">= 0"])
       s.add_development_dependency(%q<test-unit>, [">= 0"])
       s.add_development_dependency(%q<shoulda-context>, [">= 0"])
+      s.add_development_dependency('echoe')
     else
       s.add_dependency(%q<sqlite3>, [">= 0"])
       s.add_dependency(%q<active_record>, [">= 0"])

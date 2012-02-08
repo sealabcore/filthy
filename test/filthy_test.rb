@@ -7,6 +7,12 @@ class MovieTest < Test::Unit::TestCase
       @movie = Movie.new
     end
 
+    context "with no arguments" do
+      should "raise an ArgumentError" do
+        assert_raise(ArgumentError) { Movie.filthy_attributes }
+      end
+    end
+
     context "with passed attributes" do
       context "on a new record" do
         should "create accessors" do
@@ -82,7 +88,18 @@ class MovieTest < Test::Unit::TestCase
         assert @short.title_filthy?
       end
     end
+
+    context "with a subclass with different filthy_attributes defined" do
+      should "inherit the parent class's filthy attributes and add to them" do
+        assert_same_elements [:best_boy_grip, :title, :director], Documentary.filthy_columns
+      end
+
+      should "not alter the parent class's filthy attributes" do
+        assert_same_elements [:title, :director], Movie.filthy_columns
+      end
+    end
   end
+
     
 end
 

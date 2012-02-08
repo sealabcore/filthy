@@ -10,6 +10,7 @@ gem install filthy
 
 ```ruby
 class Movie < ActiveRecord::Base
+  include Filthy
   
   filthy_attributes :title, :director
 

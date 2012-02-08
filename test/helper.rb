@@ -10,6 +10,7 @@ ActiveRecord::Base.establish_connection(config['test'])
 ActiveRecord::Base.connection.create_table :movies, :force => true do |table|
   table.column :title, :string
   table.column :director, :string
+  table.column :best_boy_grip, :string
 end
 
 ActiveRecord::Base.connection.create_table :actors, :force => true do |table|
@@ -18,14 +19,19 @@ ActiveRecord::Base.connection.create_table :actors, :force => true do |table|
 end
 
 class Movie < ActiveRecord::Base
+  include Filthy
   
   filthy_attributes :title, :director
-
 end
 
 class Short < Movie
 end
 
+class Documentary < Movie
+  filthy_attributes :best_boy_grip
+end
+
 class Actor < ActiveRecord::Base
+  include Filthy
 
 end
