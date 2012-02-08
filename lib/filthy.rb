@@ -48,7 +48,3 @@ module Filthy
   end
   
 end
-
-class ActiveRecord::Base
-  include Filthy
-end

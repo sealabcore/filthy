@@ -19,6 +19,7 @@ ActiveRecord::Base.connection.create_table :actors, :force => true do |table|
 end
 
 class Movie < ActiveRecord::Base
+  include Filthy
   
   filthy_attributes :title, :director
 
@@ -32,5 +33,6 @@ class Documentary < Movie
 end
 
 class Actor < ActiveRecord::Base
+  include Filthy
 
 end
