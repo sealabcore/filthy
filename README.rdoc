@@ -10,6 +10,7 @@ Rails gem to check if an attribute was changed on the last save. Useful in after
 
 
   class Movie < ActiveRecord::Base
+    include Filthy
     
     filthy_attributes :title, :director
 
