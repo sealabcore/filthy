@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('filthy', '2.0.0') do |p|
+Echoe.new('filthy', '2.0.1') do |p|
   p.description    = "Check if an attribute was changed after the last save."
   p.url            = "http://github.com/sealabcore/filthy"
   p.author         = "Mike Taylor"

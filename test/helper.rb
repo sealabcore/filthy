@@ -31,6 +31,10 @@ class Documentary < Movie
   filthy_attributes :best_boy_grip
 end
 
+class ReallyShort < Short
+  filthy_attributes :iphone_movie
+end
+
 class Actor < ActiveRecord::Base
   include Filthy
 

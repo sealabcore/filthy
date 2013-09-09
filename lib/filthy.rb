@@ -7,10 +7,10 @@ module Filthy
 
     def filthy_attributes(*args)
       raise ArgumentError if args.empty?
-      class_inheritable_accessor :filthy_columns, :filthy_attribute_methods
+      class_attribute :filthy_columns, :filthy_attribute_methods
 
-      if self.filthy_columns
-        self.filthy_columns |= args
+      if defined?(self.superclass.filthy_columns) && self.superclass.filthy_columns.present?
+        self.filthy_columns = args + self.superclass.filthy_columns
       else
         self.filthy_columns = args
       end
